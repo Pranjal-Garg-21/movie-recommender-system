@@ -21,15 +21,22 @@ app.add_middleware(
 # Insert your actual TMDB API key here
 TMDB_API_KEY = "44f2cf49bec56e11d7607947260c0cf5"
 
-# 2. Load the pre-trained "Brain" into RAM
-# This looks for the folder you exported from Jupyter
-print("Loading Model... This might take a few seconds.")
+# 2. Load the pre-trained Retrieval and Ranking models into RAM
+print("Loading Recommender Models...")
+retrieval_model = None
+ranking_model = None
+
 try:
-    model = tf.saved_model.load("saved_recommender_model")
-    print("Model loaded successfully!")
+    retrieval_model = tf.saved_model.load("saved_recommender_model")
+    print("Retrieval model loaded successfully!")
 except Exception as e:
-    print(f"Error loading model: {e}")
-    print("Make sure 'saved_recommender_model' folder is in the same directory as server.py")
+    print(f"Error loading retrieval model: {e}")
+
+try:
+    ranking_model = tf.saved_model.load("saved_ranking_model")
+    print("Ranking model loaded successfully!")
+except Exception as e:
+    print(f"Error loading ranking model: {e}")
 
 # Genre mapping from TMDB ID to name strings
 GENRE_MAPPING = {
@@ -143,22 +150,41 @@ async def fetch_movie_details(title: str, client: httpx.AsyncClient):
 async def get_recommendations(user_id: str):
     """
     When a frontend requests this URL, it passes a user_id.
-    We feed it to the TensorFlow model, fetch enriched data from TMDB, and return JSON.
+    We retrieve candidates, rank them, fetch enriched data from TMDB, and return JSON.
     """
+    if not retrieval_model:
+        return {"status": "error", "message": "Retrieval model not loaded."}
+
     # Convert string user_id into the numpy array format the model expects
     user_tensor = np.array([user_id])
     
-    # Run the prediction!
-    scores, titles = model(user_tensor)
+    # Stage 1: Retrieval (Fetch top 25 candidates)
+    scores, titles = retrieval_model(user_tensor)
+    recommended_movies = [title.decode('utf-8') for title in titles[0, :25].numpy()]
     
-    # Clean up the output (decode bytes to strings)
-    # We grab the top 5 movie titles from the model's output
-    recommended_movies = [title.decode('utf-8') for title in titles[0, :5].numpy()]
+    # Stage 2: Ranking (Sort the top 25 candidates using the Ranking model)
+    if ranking_model:
+        try:
+            # Replicate the user_id for all candidate movies
+            user_ids_tensor = tf.constant([user_id] * len(recommended_movies), dtype=tf.string)
+            movie_titles_tensor = tf.constant(recommended_movies, dtype=tf.string)
+            
+            # Predict rating scores
+            predicted_scores = ranking_model(user_ids_tensor, movie_titles_tensor).numpy().flatten()
+            
+            # Rank candidates based on scores
+            ranked_movies = sorted(zip(recommended_movies, predicted_scores), key=lambda x: x[1], reverse=True)
+            top_recommended_movies = [movie for movie, score in ranked_movies[:5]]
+            print(f"Ranked movies for user {user_id}: {[(m, float(s)) for m, s in ranked_movies[:5]]}")
+        except Exception as e:
+            print(f"Error during ranking: {e}")
+            top_recommended_movies = recommended_movies[:5]
+    else:
+        top_recommended_movies = recommended_movies[:5]
     
     # Fetch enriched data from TMDB asynchronously
     async with httpx.AsyncClient() as client:
-        # We fire off all 5 TMDB requests concurrently for maximum speed
-        tasks = [fetch_movie_details(title, client) for title in recommended_movies]
+        tasks = [fetch_movie_details(title, client) for title in top_recommended_movies]
         enriched_recommendations = await asyncio.gather(*tasks)
     
     return {
