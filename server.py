@@ -1,10 +1,16 @@
+# pyrefly: ignore [missing-import]
 from fastapi import FastAPI
+# pyrefly: ignore [missing-import]
 from fastapi.middleware.cors import CORSMiddleware
 import tensorflow as tf
+# pyrefly: ignore [missing-import]
 import numpy as np
+# pyrefly: ignore [missing-import]
 import httpx
+# pyrefly: ignore [missing-import]
 import asyncio
 import re
+import json
 
 # 1. Initialize the Web App
 app = FastAPI(title="Netflix Clone ML API")
@@ -37,6 +43,15 @@ try:
     print("Ranking model loaded successfully!")
 except Exception as e:
     print(f"Error loading ranking model: {e}")
+
+# Load User Demographics database for feature lookup at prediction time
+USER_DEMOGRAPHICS = {}
+try:
+    with open("user_demographics.json", "r") as f:
+        USER_DEMOGRAPHICS = json.load(f)
+    print("User demographics database loaded successfully!")
+except Exception as e:
+    print(f"Error loading user demographics database: {e}")
 
 # Genre mapping from TMDB ID to name strings
 GENRE_MAPPING = {
@@ -165,12 +180,32 @@ async def get_recommendations(user_id: str):
     # Stage 2: Ranking (Sort the top 25 candidates using the Ranking model)
     if ranking_model:
         try:
-            # Replicate the user_id for all candidate movies
+            # Look up demographic features or use default values if not found
+            user_features = USER_DEMOGRAPHICS.get(user_id, {
+                "raw_user_age": 34.0,
+                "user_gender": True,
+                "user_occupation_text": "other"
+            })
+            
+            raw_user_age = user_features.get("raw_user_age", 34.0)
+            user_gender = user_features.get("user_gender", True)
+            user_occupation_text = user_features.get("user_occupation_text", "other")
+            
+            # Replicate the user features for all candidate movies
             user_ids_tensor = tf.constant([user_id] * len(recommended_movies), dtype=tf.string)
+            ages_tensor = tf.constant([raw_user_age] * len(recommended_movies), dtype=tf.float32)
+            genders_tensor = tf.constant([user_gender] * len(recommended_movies), dtype=tf.bool)
+            occs_tensor = tf.constant([user_occupation_text] * len(recommended_movies), dtype=tf.string)
             movie_titles_tensor = tf.constant(recommended_movies, dtype=tf.string)
             
             # Predict rating scores
-            predicted_scores = ranking_model(user_ids_tensor, movie_titles_tensor).numpy().flatten()
+            predicted_scores = ranking_model(
+                user_id=user_ids_tensor,
+                raw_user_age=ages_tensor,
+                user_gender=genders_tensor,
+                user_occupation_text=occs_tensor,
+                movie_title=movie_titles_tensor
+            ).numpy().flatten()
             
             # Rank candidates based on scores
             ranked_movies = sorted(zip(recommended_movies, predicted_scores), key=lambda x: x[1], reverse=True)

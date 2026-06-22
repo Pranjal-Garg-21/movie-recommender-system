@@ -9,14 +9,14 @@ const MOCK_PROFILES = [
   { id: '500', name: 'Taylor', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80', color: 'bg-purple-600' }
 ];
 
-// Fallback / Trending movies list
+// Verified Trending Movies list with working TMDB poster/backdrop URLs
 const TRENDING_MOVIES = [
   {
     title: "Dark Knight, The (2008)",
     tmdb_title: "The Dark Knight",
-    overview: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-    poster_url: "https://image.tmdb.org/t/p/w500/qJ21Kw18e52n355hHcgjSRIYwzw.jpg",
-    backdrop_url: "https://image.tmdb.org/t/p/original/o8zkcrq52ug8Ns894mR6t48Ju1y.jpg",
+    overview: "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.",
+    poster_url: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+    backdrop_url: "https://image.tmdb.org/t/p/original/cfT29Im5VDvjE0RpyKOSdCKZal7.jpg",
     rating: 8.5,
     release_date: "2008-07-16",
     genres: ["Action", "Crime", "Drama", "Thriller"]
@@ -24,9 +24,9 @@ const TRENDING_MOVIES = [
   {
     title: "Inception (2010)",
     tmdb_title: "Inception",
-    overview: "Cobb, a skilled thief who steals valuable secrets from deep within the subconscious during the dream state, is offered a chance to have his criminal history erased as payment for an impossible task: inception.",
-    poster_url: "https://image.tmdb.org/t/p/w500/o0OFlwCnTEju7Ur3vclz5V64sIF.jpg",
-    backdrop_url: "https://image.tmdb.org/t/p/original/8Zg0i1sC960X6K6242Sswh69oT9.jpg",
+    overview: "Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: \"inception\", the implantation of another person's idea into a target's subconscious.",
+    poster_url: "https://image.tmdb.org/t/p/w500/xlaY2zyzMfkhk0HSC5VUwzoZPU1.jpg",
+    backdrop_url: "https://image.tmdb.org/t/p/original/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg",
     rating: 8.4,
     release_date: "2010-07-15",
     genres: ["Action", "Sci-Fi", "Adventure"]
@@ -34,9 +34,9 @@ const TRENDING_MOVIES = [
   {
     title: "Pulp Fiction (1994)",
     tmdb_title: "Pulp Fiction",
-    overview: "A burger-loving hitman, his philosophical partner, a drug-addled gangster's moll, and a washed-up boxer converge in this sprawling, comedic crime caper.",
-    poster_url: "https://image.tmdb.org/t/p/w500/d5iIlvfjPyI0jIJkXZ2Jg27OIU7.jpg",
-    backdrop_url: "https://image.tmdb.org/t/p/original/sua7t8dhjQAaoTYjMrg268d9hgS.jpg",
+    overview: "A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time.",
+    poster_url: "https://image.tmdb.org/t/p/w500/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg",
+    backdrop_url: "https://image.tmdb.org/t/p/original/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg",
     rating: 8.5,
     release_date: "1994-09-10",
     genres: ["Thriller", "Crime"]
@@ -45,8 +45,8 @@ const TRENDING_MOVIES = [
     title: "Interstellar (2014)",
     tmdb_title: "Interstellar",
     overview: "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
-    poster_url: "https://image.tmdb.org/t/p/w500/gEU2QvE4Fg7QJy89jGEjEpwc2sn.jpg",
-    backdrop_url: "https://image.tmdb.org/t/p/original/xJHokZbljvjC4nQ7o3hxZ6k4QQv.jpg",
+    poster_url: "https://image.tmdb.org/t/p/w500/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
+    backdrop_url: "https://image.tmdb.org/t/p/original/2ssWTSVklAEc98frZUQhgtGHx7s.jpg",
     rating: 8.4,
     release_date: "2014-11-05",
     genres: ["Adventure", "Drama", "Sci-Fi"]
@@ -55,22 +55,22 @@ const TRENDING_MOVIES = [
     title: "Spirited Away (2001)",
     tmdb_title: "Spirited Away",
     overview: "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.",
-    poster_url: "https://image.tmdb.org/t/p/w500/39GoRS2tA6bccR1296UFo3U8frA.jpg",
-    backdrop_url: "https://image.tmdb.org/t/p/original/m4Vo6ZXM7glyC4vIQjoz246Y6Ev.jpg",
+    poster_url: "https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
+    backdrop_url: "https://image.tmdb.org/t/p/original/dyJvKsNs2KP8qQnAXbRwDjblViy.jpg",
     rating: 8.5,
     release_date: "2001-07-20",
     genres: ["Animation", "Family", "Fantasy"]
   }
 ];
 
-// High-fidelity Mock Series list
+// Verified TV Series list with working TMDB poster/backdrop URLs
 const TV_SERIES = [
   {
     title: "Stranger Things",
     tmdb_title: "Stranger Things",
-    overview: "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.",
-    poster_url: "https://image.tmdb.org/t/p/w500/49W0wL04Ip6Jj96n1ShcIH6J0db.jpg",
-    backdrop_url: "https://image.tmdb.org/t/p/original/56v21G95l9lrnBCts6N5nEz44CN.jpg",
+    overview: "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.",
+    poster_url: "https://image.tmdb.org/t/p/w500/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg",
+    backdrop_url: "https://image.tmdb.org/t/p/original/56v2KjBlU4XaOv9rVYEQypROD7P.jpg",
     rating: 8.6,
     release_date: "2016-07-15",
     genres: ["Sci-Fi", "Drama", "Mystery"]
@@ -78,10 +78,10 @@ const TV_SERIES = [
   {
     title: "Wednesday",
     tmdb_title: "Wednesday",
-    overview: "Wednesday Addams is sent to Nevermore Academy, a bizarre boarding school where she attempts to master her emerging psychic ability, solve a mystery and make new friends.",
-    poster_url: "https://image.tmdb.org/t/p/w500/9PFvmRhv21g06igw2R7gTY0OF6M.jpg",
-    backdrop_url: "https://image.tmdb.org/t/p/original/iHMRzcKj6wMAJG6j4Dk89ft3o3z.jpg",
-    rating: 8.5,
+    overview: "Smart, sarcastic and a little dead inside, Wednesday Addams investigates twisted mysteries while making new friends — and foes — at Nevermore Academy.",
+    poster_url: "https://image.tmdb.org/t/p/w500/36xXlhEpQqVVPuiZhfoQuaY4OlA.jpg",
+    backdrop_url: "https://image.tmdb.org/t/p/original/iHSwvRVsRyxpX7FE7GbviaDvgGZ.jpg",
+    rating: 8.3,
     release_date: "2022-11-23",
     genres: ["Comedy", "Mystery", "Fantasy"]
   },
@@ -89,9 +89,9 @@ const TV_SERIES = [
     title: "Squid Game",
     tmdb_title: "Squid Game",
     overview: "Hundreds of cash-strapped players accept a strange invitation to compete in children's games. Inside, a tempting prize awaits — with deadly high stakes.",
-    poster_url: "https://image.tmdb.org/t/p/w500/djd95jxBII6jP558e457y496V1Y.jpg",
-    backdrop_url: "https://image.tmdb.org/t/p/original/yGPXa6km5hX6c48gTujLrwb406r.jpg",
-    rating: 8.7,
+    poster_url: "https://image.tmdb.org/t/p/w500/1QdXdRYfktUSONkl1oD5gc6Be0s.jpg",
+    backdrop_url: "https://image.tmdb.org/t/p/original/2meX1nMdScFOoV4370rqHWKmXhY.jpg",
+    rating: 7.9,
     release_date: "2021-09-17",
     genres: ["Action", "Drama", "Thriller"]
   },
@@ -99,18 +99,18 @@ const TV_SERIES = [
     title: "The Witcher",
     tmdb_title: "The Witcher",
     overview: "Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.",
-    poster_url: "https://image.tmdb.org/t/p/w500/7vjaee0u72sbUNl0N0gACehA2n1.jpg",
-    backdrop_url: "https://image.tmdb.org/t/p/original/foG7Vhl9uua5eb0jR5m36t561wt.jpg",
-    rating: 8.1,
+    poster_url: "https://image.tmdb.org/t/p/w500/AoGsDM02UVt0npBA8OvpDcZbaMi.jpg",
+    backdrop_url: "https://image.tmdb.org/t/p/original/foGkPxpw9h8zln81j63mix5B7m8.jpg",
+    rating: 7.9,
     release_date: "2019-12-20",
     genres: ["Action", "Adventure", "Fantasy"]
   },
   {
     title: "Black Mirror",
     tmdb_title: "Black Mirror",
-    overview: "A sci-fi anthology series exploring a twisted, high-tech near-future where humanity's greatest innovations and darkest instincts collide.",
-    poster_url: "https://image.tmdb.org/t/p/w500/7c96lR7bb7B9V7p1al7VNWv5Hj0.jpg",
-    backdrop_url: "https://image.tmdb.org/t/p/original/y25U0T99k9YqYgV2G43p6Mup1f.jpg",
+    overview: "Twisted tales run wild in this mind-bending anthology series that reveals humanity's worst traits, greatest innovations and more.",
+    poster_url: "https://image.tmdb.org/t/p/w500/seN6rRfN0I6n8iDXjlSMk1QjNcq.jpg",
+    backdrop_url: "https://image.tmdb.org/t/p/original/dg3OindVAGZBjlT3xYKqIAdukPL.jpg",
     rating: 8.3,
     release_date: "2011-12-04",
     genres: ["Sci-Fi", "Drama", "Thriller"]
@@ -256,6 +256,47 @@ function App() {
   // The hero banner movie is the top recommender item
   const heroMovie = recommendations[0];
 
+  // Dynamic "Because you watched" logic
+  // Grabs the last movie in user's saved list. If empty, falls back to the top recommendation or a trending movie.
+  const getWatchedReference = () => {
+    if (myList.length > 0) {
+      return myList[myList.length - 1];
+    }
+    return heroMovie || TRENDING_MOVIES[0];
+  };
+
+  const watchedReference = getWatchedReference();
+
+  const getRelatedMovies = () => {
+    if (!watchedReference) return [];
+    
+    const watchedGenres = watchedReference.genres || [];
+    const watchedTitle = watchedReference.title;
+
+    // Filter recommendations that share a genre (and aren't the same movie)
+    let related = [...recommendations, ...TRENDING_MOVIES].filter(movie => 
+      movie.title !== watchedTitle &&
+      (movie.genres || []).some(g => watchedGenres.includes(g))
+    );
+
+    // Remove duplicates
+    const seen = new Set();
+    related = related.filter(movie => {
+      if (seen.has(movie.title)) return false;
+      seen.add(movie.title);
+      return true;
+    });
+
+    // Fallback if no matching genres
+    if (related.length === 0) {
+      related = TRENDING_MOVIES.filter(movie => movie.title !== watchedTitle);
+    }
+
+    return related;
+  };
+
+  const relatedMovies = getRelatedMovies();
+
   // Search filtering logic
   const filterList = (list) => {
     if (!searchQuery.trim()) return list;
@@ -272,6 +313,7 @@ function App() {
   const filteredTrending = filterList(TRENDING_MOVIES);
   const filteredSeries = filterList(TV_SERIES);
   const filteredMyList = filterList(myList);
+  const filteredRelated = filterList(relatedMovies);
 
   const isSearchActive = searchQuery.trim() !== '';
 
@@ -280,7 +322,7 @@ function App() {
       
       {/* Toast Notification Alert */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#E50914] text-white px-5 py-3 rounded-md shadow-2xl flex items-center gap-3 font-medium tracking-wide text-sm animate-fade-in">
+        <div className="fixed bottom-6 right-6 z-50 bg-[#E50914] text-white px-5 py-3 rounded-md shadow-2xl flex items-center gap-3 font-semibold tracking-wide text-sm animate-fade-in border border-red-500/20">
           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
           </svg>
@@ -290,8 +332,8 @@ function App() {
 
       {/* 1. Profile Select View */}
       {currentView === 'profiles' && (
-        <div className="flex flex-col items-center justify-center min-h-screen px-4 animate-fade-in">
-          <h1 className="text-3xl md:text-5xl font-medium tracking-wide mb-8 md:mb-12">Who's watching?</h1>
+        <div className="flex flex-col items-center justify-center min-h-screen px-4 animate-fade-in bg-radial from-[#1a1a1a] to-[#141414]">
+          <h1 className="text-3xl md:text-5xl font-semibold tracking-wide mb-8 md:mb-12 text-white/95">Who's watching?</h1>
           
           <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-4xl">
             {MOCK_PROFILES.map((profile) => (
@@ -300,15 +342,15 @@ function App() {
                 onClick={() => handleProfileSelect(profile)}
                 className="group flex flex-col items-center cursor-pointer text-gray-400 hover:text-white transition duration-300"
               >
-                <div className="relative overflow-hidden rounded-md border-3 border-transparent group-hover:border-white transition duration-200 shadow-lg">
+                <div className="relative overflow-hidden rounded-md border-3 border-transparent group-hover:border-white transition-all duration-300 shadow-xl group-hover:scale-105 group-hover:shadow-2xl">
                   <img 
                     src={profile.avatar} 
                     alt={profile.name} 
-                    className="w-24 h-24 md:w-32 md:h-32 object-cover group-hover:scale-105 transition duration-300"
+                    className="w-24 h-24 md:w-32 md:h-32 object-cover group-hover:brightness-110 transition duration-300"
                   />
                   <div className={`absolute bottom-0 inset-x-0 h-1.5 ${profile.color}`}></div>
                 </div>
-                <span className="mt-3 text-base md:text-lg font-light tracking-wide">{profile.name}</span>
+                <span className="mt-3 text-base md:text-lg font-light tracking-wide group-hover:text-white transition">{profile.name}</span>
                 <span className="text-xs text-gray-500 mt-1">ID: {profile.id}</span>
               </div>
             ))}
@@ -316,19 +358,19 @@ function App() {
 
           <div className="mt-16 w-full max-w-sm border-t border-gray-800 pt-8">
             <form onSubmit={handleCustomSubmit} className="flex flex-col items-center">
-              <label htmlFor="userId" className="text-gray-400 text-sm mb-2 font-light">Or enter custom ML User ID:</label>
-              <div className="flex w-full rounded overflow-hidden shadow-md">
+              <label htmlFor="userId" className="text-gray-400 text-sm mb-3 font-light">Or enter custom ML User ID:</label>
+              <div className="flex w-full rounded overflow-hidden shadow-lg border border-gray-800 focus-within:border-[#E50914] transition">
                 <input 
                   type="text" 
                   id="userId"
                   placeholder="e.g. 42" 
                   value={customUserId}
                   onChange={(e) => setCustomUserId(e.target.value)}
-                  className="bg-[#333] text-white px-4 py-2 flex-grow focus:outline-none focus:bg-[#444] border-b-2 border-transparent focus:border-[#E50914] text-sm"
+                  className="bg-[#2a2a2a] text-white px-4 py-2 flex-grow focus:outline-none text-sm font-light"
                 />
                 <button 
                   type="submit" 
-                  className="bg-[#E50914] hover:bg-[#b80710] text-white px-5 py-2 font-medium tracking-wide text-sm transition duration-150 active:scale-95"
+                  className="bg-[#E50914] hover:bg-[#b80710] text-white px-5 py-2 font-semibold tracking-wide text-sm transition duration-150 active:scale-95 cursor-pointer"
                 >
                   Load
                 </button>
@@ -342,10 +384,10 @@ function App() {
       {currentView === 'dashboard' && loading && (
         <div className="flex flex-col items-center justify-center min-h-screen">
           <div className="relative w-16 h-16">
-            <div className="absolute inset-0 rounded-full border-4 border-gray-700"></div>
+            <div className="absolute inset-0 rounded-full border-4 border-gray-800"></div>
             <div className="absolute inset-0 rounded-full border-4 border-t-[#E50914] animate-spin"></div>
           </div>
-          <p className="mt-6 text-gray-400 text-sm tracking-widest uppercase font-light">Loading Recommendations...</p>
+          <p className="mt-6 text-gray-400 text-sm tracking-widest uppercase font-light animate-pulse">Loading Recommendations...</p>
         </div>
       )}
 
@@ -354,7 +396,7 @@ function App() {
         <div className="relative pb-24 animate-fade-in">
           
           {/* Header/Navbar */}
-          <nav className={`fixed top-0 inset-x-0 z-45 nav-bg-transition px-4 md:px-12 py-3 flex items-center justify-between ${scrolled ? 'bg-[#141414] shadow-md' : 'bg-gradient-to-b from-black/80 to-transparent'}`}>
+          <nav className={`fixed top-0 inset-x-0 z-40 nav-bg-transition px-4 md:px-12 py-3 flex items-center justify-between ${scrolled ? 'bg-[#141414]/95 backdrop-blur-md shadow-md border-b border-gray-900/50' : 'bg-gradient-to-b from-black/90 to-transparent'}`}>
             <div className="flex items-center gap-6 md:gap-10">
               <span 
                 onClick={switchProfile}
@@ -365,25 +407,25 @@ function App() {
               <div className="hidden md:flex gap-5 text-sm text-gray-300 font-light">
                 <span 
                   onClick={() => { setActiveTab('home'); setSearchQuery(''); }}
-                  className={`hover:text-white cursor-pointer transition ${activeTab === 'home' && !isSearchActive ? 'text-white font-medium' : ''}`}
+                  className={`hover:text-white cursor-pointer transition ${activeTab === 'home' && !isSearchActive ? 'text-white font-semibold' : ''}`}
                 >
                   Home
                 </span>
                 <span 
                   onClick={() => { setActiveTab('series'); setSearchQuery(''); }}
-                  className={`hover:text-white cursor-pointer transition ${activeTab === 'series' && !isSearchActive ? 'text-white font-medium' : ''}`}
+                  className={`hover:text-white cursor-pointer transition ${activeTab === 'series' && !isSearchActive ? 'text-white font-semibold' : ''}`}
                 >
                   Series
                 </span>
                 <span 
                   onClick={() => { setActiveTab('movies'); setSearchQuery(''); }}
-                  className={`hover:text-white cursor-pointer transition ${activeTab === 'movies' && !isSearchActive ? 'text-white font-medium' : ''}`}
+                  className={`hover:text-white cursor-pointer transition ${activeTab === 'movies' && !isSearchActive ? 'text-white font-semibold' : ''}`}
                 >
                   Movies
                 </span>
                 <span 
                   onClick={() => { setActiveTab('mylist'); setSearchQuery(''); }}
-                  className={`hover:text-white cursor-pointer transition ${activeTab === 'mylist' && !isSearchActive ? 'text-white font-medium' : ''}`}
+                  className={`hover:text-white cursor-pointer transition ${activeTab === 'mylist' && !isSearchActive ? 'text-white font-semibold' : ''}`}
                 >
                   My List {myList.length > 0 && <span className="ml-1 bg-[#E50914] text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold">{myList.length}</span>}
                 </span>
@@ -392,7 +434,7 @@ function App() {
 
             <div className="flex items-center gap-5">
               {/* Expandable Search Input */}
-              <div className="flex items-center gap-2 bg-black/40 border border-gray-800 rounded px-2.5 py-1.5 transition-all duration-300">
+              <div className="flex items-center gap-2 bg-black/50 border border-gray-800/80 rounded px-2.5 py-1.5 transition-all duration-300 focus-within:border-gray-600">
                 <svg 
                   onClick={() => setSearchOpen(!searchOpen)}
                   className="w-4 h-4 text-gray-400 hover:text-white cursor-pointer transition" 
@@ -405,7 +447,7 @@ function App() {
                 {(searchOpen || searchQuery) && (
                   <input 
                     type="text" 
-                    placeholder="Titles, people, genres..." 
+                    placeholder="Titles, genres..." 
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="bg-transparent text-xs text-white placeholder-gray-500 focus:outline-none w-32 md:w-48 transition-all duration-300 animate-fade-in"
@@ -423,7 +465,7 @@ function App() {
                 <img 
                   src={selectedProfile?.avatar} 
                   alt={selectedProfile?.name} 
-                  className="w-8 h-8 rounded object-cover border border-gray-700"
+                  className="w-8 h-8 rounded object-cover border border-gray-700 hover:border-white transition"
                 />
                 <span className="text-xs text-gray-300 hidden sm:inline group-hover:text-white transition">{selectedProfile?.name}</span>
                 <svg className="w-3.5 h-3.5 text-gray-400 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -464,7 +506,6 @@ function App() {
                 Search results for: <span className="text-white italic">"{searchQuery}"</span>
               </h2>
               
-              {/* Combine search results from all categories */}
               {(() => {
                 const combined = [];
                 const titlesSeen = new Set();
@@ -494,7 +535,7 @@ function App() {
                       <div 
                         key={idx}
                         onClick={() => setSelectedMovie(movie)}
-                        className="transition-transform duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl cursor-pointer rounded-md overflow-hidden bg-[#181818] border border-gray-800 group"
+                        className="transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:z-10 hover:shadow-2xl cursor-pointer rounded-md overflow-hidden bg-[#181818] border border-gray-800/80 group"
                       >
                         <div className="relative aspect-[2/3] w-full">
                           {movie.poster_url ? (
@@ -503,11 +544,11 @@ function App() {
                             <div className="w-full h-full bg-[#202020] flex items-center justify-center p-4 text-center text-xs text-gray-500">{movie.title}</div>
                           )}
                         </div>
-                        <div className="p-3">
+                        <div className="p-3 bg-[#181818]">
                           <h4 className="text-xs font-semibold text-white truncate mb-1">{movie.tmdb_title || movie.title.replace(/\s*\(\d{4}\)$/, '')}</h4>
                           <div className="flex items-center justify-between text-[10px]">
-                            <span className="text-green-500">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
-                            <span className="text-gray-400">{movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}</span>
+                            <span className="text-green-500 font-medium">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
+                            <span className="text-gray-400 font-light">{movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}</span>
                           </div>
                         </div>
                       </div>
@@ -547,20 +588,20 @@ function App() {
                     {heroMovie.genres && heroMovie.genres.length > 0 && (
                       <div className="flex flex-wrap gap-2 mb-3">
                         {heroMovie.genres.map((g, idx) => (
-                          <span key={idx} className="bg-black/40 border border-gray-600/40 text-xs text-gray-300 px-2 py-0.5 rounded font-light backdrop-blur-sm">
+                          <span key={idx} className="bg-black/55 border border-gray-700/30 text-xs text-gray-300 px-2 py-0.5 rounded font-light backdrop-blur-sm">
                             {g}
                           </span>
                         ))}
                       </div>
                     )}
                     
-                    <h2 className="text-3xl md:text-6xl font-bold tracking-tight text-white mb-3">
+                    <h2 className="text-3xl md:text-6xl font-extrabold tracking-tight text-white mb-3">
                       {heroMovie.tmdb_title || heroMovie.title.replace(/\s*\(\d{4}\)$/, '')}
                     </h2>
                     
-                    <div className="flex items-center gap-3.5 mb-4 text-sm font-medium">
+                    <div className="flex items-center gap-3.5 mb-4 text-sm font-semibold">
                       {heroMovie.rating > 0 && (
-                        <span className="text-green-500 flex items-center gap-1 font-semibold">
+                        <span className="text-green-500 flex items-center gap-1">
                           <svg className="w-4 h-4 text-green-500 fill-current" viewBox="0 0 24 24">
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
                           </svg>
@@ -582,7 +623,7 @@ function App() {
                     <div className="flex items-center gap-3">
                       <button 
                         onClick={() => setSelectedMovie(heroMovie)}
-                        className="bg-white hover:bg-white/80 text-black px-6 md:px-8 py-2 md:py-2.5 rounded font-semibold flex items-center justify-center gap-2 transition duration-200 active:scale-95 text-sm shadow-md"
+                        className="bg-white hover:bg-white/80 text-black px-6 md:px-8 py-2.5 rounded font-bold flex items-center justify-center gap-2 transition duration-200 active:scale-95 text-sm shadow-md cursor-pointer"
                       >
                         <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z"></path>
@@ -591,7 +632,7 @@ function App() {
                       </button>
                       <button 
                         onClick={() => setSelectedMovie(heroMovie)}
-                        className="bg-gray-500/50 hover:bg-gray-500/40 text-white px-5 md:px-7 py-2 md:py-2.5 rounded font-semibold flex items-center justify-center gap-2 transition duration-200 active:scale-95 text-sm backdrop-blur-sm border border-gray-400/20"
+                        className="bg-gray-500/40 hover:bg-gray-500/30 text-white px-5 md:px-7 py-2.5 rounded font-bold flex items-center justify-center gap-2 transition duration-200 active:scale-95 text-sm backdrop-blur-sm border border-gray-500/10 cursor-pointer"
                       >
                         <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -603,47 +644,58 @@ function App() {
                 </div>
               )}
 
-              {/* Row 1: Recommendations */}
+              {/* Row 1: Netflix Top 10 Personalized Recommendations with Giant Numbers */}
               <div className="px-4 md:px-12 mt-8 relative z-20">
-                <h3 className="text-lg md:text-xl font-bold mb-4 tracking-wide text-white flex items-center gap-2">
-                  <span>Personalized Recommendations</span>
-                  <span className="text-xs text-gray-500 font-normal">Based on user preferences</span>
+                <h3 className="text-lg md:text-2xl font-bold mb-4 tracking-wide text-white flex items-center gap-2">
+                  <span>Top 10 Recommendations for You</span>
+                  <span className="text-xs text-gray-500 font-normal">Ranked by Stage-2 model</span>
                 </h3>
                 
                 <div className="relative group/row">
                   <button 
-                    onClick={() => document.getElementById('carousel-recs').scrollBy({ left: -350, behavior: 'smooth' })}
-                    className="absolute left-0 inset-y-0 z-30 w-10 bg-black/60 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/80 border-r border-gray-800"
+                    onClick={() => document.getElementById('carousel-recs').scrollBy({ left: -450, behavior: 'smooth' })}
+                    className="absolute left-0 inset-y-0 z-30 w-12 bg-black/70 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/90 border-r border-gray-800/50 cursor-pointer"
                   >
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path>
                     </svg>
                   </button>
 
-                  <div id="carousel-recs" className="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth pb-6 pt-2">
+                  <div id="carousel-recs" className="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth pb-8 pt-4">
                     {recommendations.map((movie, idx) => (
                       <div 
                         key={idx}
                         onClick={() => setSelectedMovie(movie)}
-                        className="flex-none w-36 sm:w-44 md:w-52 transition-transform duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl cursor-pointer relative rounded-md overflow-hidden bg-[#181818] border border-gray-800 group"
+                        className="flex-none w-44 sm:w-52 md:w-60 transition-all duration-300 hover:scale-110 hover:-translate-y-2 hover:z-30 hover:shadow-2xl cursor-pointer relative flex items-center pl-10 md:pl-14 group"
                       >
-                        <div className="relative aspect-[2/3] w-full">
+                        {/* Giant outline rank number */}
+                        <span 
+                          className="absolute left-0 bottom-[-1rem] text-[9rem] md:text-[12rem] font-black leading-none text-black select-none z-0 tracking-tighter"
+                          style={{ 
+                            WebkitTextStroke: '2px #444', 
+                            textShadow: '0 0 10px rgba(0,0,0,0.9)',
+                            fontFamily: '"Outfit", sans-serif'
+                          }}
+                        >
+                          {idx + 1}
+                        </span>
+
+                        <div className="relative aspect-[2/3] w-full rounded-md overflow-hidden bg-[#181818] border border-gray-800 shadow-lg z-10 transition-opacity duration-300 group-hover:opacity-90">
                           {movie.poster_url ? (
-                            <img src={movie.poster_url} alt={movie.tmdb_title || movie.title} className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-85" loading="lazy" />
+                            <img src={movie.poster_url} alt={movie.tmdb_title || movie.title} className="w-full h-full object-cover" loading="lazy" />
                           ) : (
                             <div className="w-full h-full bg-[#202020] flex flex-col items-center justify-center p-4 text-center">
                               <span className="text-xs text-gray-400 font-light truncate w-full">{movie.title}</span>
                             </div>
                           )}
-                          <div className="absolute top-2 left-2 w-6 h-6 bg-[#E50914] text-white rounded-full flex items-center justify-center font-bold text-xs shadow-md">
-                            {idx + 1}
-                          </div>
-                        </div>
-                        <div className="p-3">
-                          <h4 className="text-xs font-semibold text-white truncate mb-1">{movie.tmdb_title || movie.title.replace(/\s*\(\d{4}\)$/, '')}</h4>
-                          <div className="flex items-center justify-between text-[10px]">
-                            <span className="text-green-500 font-medium">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
-                            <span className="text-gray-400 font-light">{movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}</span>
+                          
+                          {/* Inner hover metadata */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-3 z-20">
+                            <h4 className="text-xs md:text-sm font-bold text-white truncate">{movie.tmdb_title || movie.title.replace(/\s*\(\d{4}\)$/, '')}</h4>
+                            <div className="flex items-center justify-between text-[9px] md:text-[10px] mt-1">
+                              <span className="text-green-500 font-semibold">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
+                              <span className="text-gray-300 font-light">{movie.release_date ? new Date(movie.release_date).getFullYear() : ''}</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -651,8 +703,8 @@ function App() {
                   </div>
 
                   <button 
-                    onClick={() => document.getElementById('carousel-recs').scrollBy({ left: 350, behavior: 'smooth' })}
-                    className="absolute right-0 inset-y-0 z-30 w-10 bg-black/60 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/80 border-l border-gray-800"
+                    onClick={() => document.getElementById('carousel-recs').scrollBy({ left: 450, behavior: 'smooth' })}
+                    className="absolute right-0 inset-y-0 z-30 w-12 bg-black/70 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/90 border-l border-gray-800/50 cursor-pointer"
                   >
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path>
@@ -661,18 +713,67 @@ function App() {
                 </div>
               </div>
 
-              {/* Row 2: My List (Only if not empty) */}
+              {/* Row 2: Dynamic "Because you watched [Movie]" Row */}
+              {watchedReference && filteredRelated.length > 0 && (
+                <div className="px-4 md:px-12 mt-8 relative z-20">
+                  <h3 className="text-lg md:text-xl font-bold mb-4 tracking-wide text-white flex items-center gap-2">
+                    <span>Because you watched <span className="text-[#E50914]">{watchedReference.tmdb_title || watchedReference.title.replace(/\s*\(\d{4}\)$/, '')}</span></span>
+                  </h3>
+                  
+                  <div className="relative group/row">
+                    <button 
+                      onClick={() => document.getElementById('carousel-related').scrollBy({ left: -350, behavior: 'smooth' })}
+                      className="absolute left-0 inset-y-0 z-30 w-10 bg-black/60 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/80 border-r border-gray-800/50 cursor-pointer"
+                    >
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path>
+                      </svg>
+                    </button>
+
+                    <div id="carousel-related" className="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth pb-6 pt-2">
+                      {filteredRelated.map((movie, idx) => (
+                        <div 
+                          key={idx}
+                          onClick={() => setSelectedMovie(movie)}
+                          className="flex-none w-36 sm:w-44 md:w-52 transition-all duration-300 hover:scale-110 hover:-translate-y-2 hover:z-20 hover:shadow-2xl cursor-pointer relative rounded-md overflow-hidden bg-[#181818] border border-gray-800/80 group"
+                        >
+                          <div className="relative aspect-[2/3] w-full">
+                            <img src={movie.poster_url} alt={movie.tmdb_title || movie.title} className="w-full h-full object-cover" loading="lazy" />
+                          </div>
+                          <div className="p-3 bg-[#181818]">
+                            <h4 className="text-xs font-semibold text-white truncate mb-1">{movie.tmdb_title || movie.title.replace(/\s*\(\d{4}\)$/, '')}</h4>
+                            <div className="flex items-center justify-between text-[10px]">
+                              <span className="text-green-500 font-semibold">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
+                              <span className="text-gray-400 font-light">{movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <button 
+                      onClick={() => document.getElementById('carousel-related').scrollBy({ left: 350, behavior: 'smooth' })}
+                      className="absolute right-0 inset-y-0 z-30 w-10 bg-black/60 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/80 border-l border-gray-800/50 cursor-pointer"
+                    >
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Row 3: My List (Persisted) */}
               {myList.length > 0 && (
                 <div className="px-4 md:px-12 mt-10 relative z-20">
                   <h3 className="text-lg md:text-xl font-bold mb-4 tracking-wide text-white flex items-center gap-2">
                     <span>My List</span>
-                    <span className="text-xs text-gray-500 font-normal">Your saved items</span>
                   </h3>
                   
                   <div className="relative group/row">
                     <button 
                       onClick={() => document.getElementById('carousel-list').scrollBy({ left: -350, behavior: 'smooth' })}
-                      className="absolute left-0 inset-y-0 z-30 w-10 bg-black/60 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/80 border-r border-gray-800"
+                      className="absolute left-0 inset-y-0 z-30 w-10 bg-black/60 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/80 border-r border-gray-800/50 cursor-pointer"
                     >
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path>
@@ -684,13 +785,13 @@ function App() {
                         <div 
                           key={idx}
                           onClick={() => setSelectedMovie(movie)}
-                          className="flex-none w-36 sm:w-44 md:w-52 transition-transform duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl cursor-pointer relative rounded-md overflow-hidden bg-[#181818] border border-gray-800 group"
+                          className="flex-none w-36 sm:w-44 md:w-52 transition-all duration-300 hover:scale-110 hover:-translate-y-2 hover:z-20 hover:shadow-2xl cursor-pointer relative rounded-md overflow-hidden bg-[#181818] border border-gray-800/80 group"
                         >
                           <div className="relative aspect-[2/3] w-full">
                             <img src={movie.poster_url} alt={movie.tmdb_title || movie.title} className="w-full h-full object-cover" />
                             <button 
                               onClick={(e) => toggleMyList(movie, e)}
-                              className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/70 border border-gray-700 text-white flex items-center justify-center hover:bg-black hover:scale-110 active:scale-95 transition"
+                              className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/80 border border-gray-700 text-white flex items-center justify-center hover:bg-black hover:scale-110 active:scale-95 transition z-30"
                               title="Remove from My List"
                             >
                               <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -698,11 +799,11 @@ function App() {
                               </svg>
                             </button>
                           </div>
-                          <div className="p-3">
+                          <div className="p-3 bg-[#181818]">
                             <h4 className="text-xs font-semibold text-white truncate mb-1">{movie.tmdb_title || movie.title.replace(/\s*\(\d{4}\)$/, '')}</h4>
                             <div className="flex items-center justify-between text-[10px]">
-                              <span className="text-green-500">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
-                              <span className="text-gray-400">{movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}</span>
+                              <span className="text-green-500 font-semibold">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
+                              <span className="text-gray-400 font-light">{movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}</span>
                             </div>
                           </div>
                         </div>
@@ -711,7 +812,7 @@ function App() {
 
                     <button 
                       onClick={() => document.getElementById('carousel-list').scrollBy({ left: 350, behavior: 'smooth' })}
-                      className="absolute right-0 inset-y-0 z-30 w-10 bg-black/60 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/80 border-l border-gray-800"
+                      className="absolute right-0 inset-y-0 z-30 w-10 bg-black/60 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/80 border-l border-gray-800/50 cursor-pointer"
                     >
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path>
@@ -721,7 +822,7 @@ function App() {
                 </div>
               )}
 
-              {/* Row 3: Trending Now */}
+              {/* Row 4: Trending Now */}
               <div className="px-4 md:px-12 mt-10 relative z-20">
                 <h3 className="text-lg md:text-xl font-bold mb-4 tracking-wide text-white flex items-center gap-2">
                   <span>Trending Now</span>
@@ -731,7 +832,7 @@ function App() {
                 <div className="relative group/row">
                   <button 
                     onClick={() => document.getElementById('carousel-trending').scrollBy({ left: -350, behavior: 'smooth' })}
-                    className="absolute left-0 inset-y-0 z-30 w-10 bg-black/60 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/80 border-r border-gray-800"
+                    className="absolute left-0 inset-y-0 z-30 w-10 bg-black/60 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/80 border-r border-gray-800/50 cursor-pointer"
                   >
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path>
@@ -739,19 +840,19 @@ function App() {
                   </button>
 
                   <div id="carousel-trending" className="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth pb-6 pt-2">
-                    {TRENDING_MOVIES.map((movie, idx) => (
+                    {filteredTrending.map((movie, idx) => (
                       <div 
                         key={idx}
                         onClick={() => setSelectedMovie(movie)}
-                        className="flex-none w-36 sm:w-44 md:w-52 transition-transform duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl cursor-pointer relative rounded-md overflow-hidden bg-[#181818] border border-gray-800 group"
+                        className="flex-none w-36 sm:w-44 md:w-52 transition-all duration-300 hover:scale-110 hover:-translate-y-2 hover:z-20 hover:shadow-2xl cursor-pointer relative rounded-md overflow-hidden bg-[#181818] border border-gray-800/80 group"
                       >
                         <div className="relative aspect-[2/3] w-full">
                           <img src={movie.poster_url} alt={movie.tmdb_title || movie.title} className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-85" loading="lazy" />
                         </div>
-                        <div className="p-3">
+                        <div className="p-3 bg-[#181818]">
                           <h4 className="text-xs font-semibold text-white truncate mb-1">{movie.tmdb_title || movie.title.replace(/\s*\(\d{4}\)$/, '')}</h4>
                           <div className="flex items-center justify-between text-[10px]">
-                            <span className="text-green-500 font-medium">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
+                            <span className="text-green-500 font-semibold">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
                             <span className="text-gray-400 font-light">{movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}</span>
                           </div>
                         </div>
@@ -761,7 +862,7 @@ function App() {
 
                   <button 
                     onClick={() => document.getElementById('carousel-trending').scrollBy({ left: 350, behavior: 'smooth' })}
-                    className="absolute right-0 inset-y-0 z-30 w-10 bg-black/60 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/80 border-l border-gray-800"
+                    className="absolute right-0 inset-y-0 z-30 w-10 bg-black/60 opacity-0 group-hover/row:opacity-100 transition duration-300 flex items-center justify-center hover:bg-black/80 border-l border-gray-800/50 cursor-pointer"
                   >
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path>
@@ -781,16 +882,16 @@ function App() {
                   <div 
                     key={idx}
                     onClick={() => setSelectedMovie(series)}
-                    className="transition-transform duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl cursor-pointer rounded-md overflow-hidden bg-[#181818] border border-gray-800 group"
+                    className="transition-all duration-300 hover:scale-110 hover:-translate-y-2 hover:z-10 hover:shadow-2xl cursor-pointer rounded-md overflow-hidden bg-[#181818] border border-gray-800/80 group"
                   >
                     <div className="relative aspect-[2/3] w-full">
                       <img src={series.poster_url} alt={series.tmdb_title} className="w-full h-full object-cover" />
                     </div>
-                    <div className="p-3">
+                    <div className="p-3 bg-[#181818]">
                       <h4 className="text-xs font-semibold text-white truncate mb-1">{series.tmdb_title}</h4>
                       <div className="flex items-center justify-between text-[10px]">
-                        <span className="text-green-500">{series.rating} / 10</span>
-                        <span className="text-gray-400">{new Date(series.release_date).getFullYear()}</span>
+                        <span className="text-green-500 font-semibold">{series.rating} / 10</span>
+                        <span className="text-gray-400 font-light">{new Date(series.release_date).getFullYear()}</span>
                       </div>
                     </div>
                   </div>
@@ -808,7 +909,7 @@ function App() {
                   <div 
                     key={idx}
                     onClick={() => setSelectedMovie(movie)}
-                    className="transition-transform duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl cursor-pointer rounded-md overflow-hidden bg-[#181818] border border-gray-800 group"
+                    className="transition-all duration-300 hover:scale-110 hover:-translate-y-2 hover:z-10 hover:shadow-2xl cursor-pointer rounded-md overflow-hidden bg-[#181818] border border-gray-800/80 group"
                   >
                     <div className="relative aspect-[2/3] w-full">
                       {movie.poster_url ? (
@@ -817,11 +918,11 @@ function App() {
                         <div className="w-full h-full bg-[#202020] flex items-center justify-center p-4 text-center text-xs text-gray-500">{movie.title}</div>
                       )}
                     </div>
-                    <div className="p-3">
+                    <div className="p-3 bg-[#181818]">
                       <h4 className="text-xs font-semibold text-white truncate mb-1">{movie.tmdb_title || movie.title.replace(/\s*\(\d{4}\)$/, '')}</h4>
                       <div className="flex items-center justify-between text-[10px]">
-                        <span className="text-green-500">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
-                        <span className="text-gray-400">{movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}</span>
+                        <span className="text-green-500 font-semibold">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
+                        <span className="text-gray-400 font-light">{movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}</span>
                       </div>
                     </div>
                   </div>
@@ -849,13 +950,13 @@ function App() {
                     <div 
                       key={idx}
                       onClick={() => setSelectedMovie(movie)}
-                      className="transition-transform duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl cursor-pointer rounded-md overflow-hidden bg-[#181818] border border-gray-800 group relative"
+                      className="transition-all duration-300 hover:scale-110 hover:-translate-y-2 hover:z-10 hover:shadow-2xl cursor-pointer rounded-md overflow-hidden bg-[#181818] border border-gray-800/80 group relative"
                     >
                       <div className="relative aspect-[2/3] w-full">
                         <img src={movie.poster_url} alt={movie.tmdb_title || movie.title} className="w-full h-full object-cover" />
                         <button 
                           onClick={(e) => toggleMyList(movie, e)}
-                          className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/70 border border-gray-700 text-white flex items-center justify-center hover:bg-black hover:scale-110 active:scale-95 transition z-20"
+                          className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/80 border border-gray-700 text-white flex items-center justify-center hover:bg-black hover:scale-110 active:scale-95 transition z-20 cursor-pointer"
                           title="Remove from My List"
                         >
                           <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -863,11 +964,11 @@ function App() {
                           </svg>
                         </button>
                       </div>
-                      <div className="p-3">
+                      <div className="p-3 bg-[#181818]">
                         <h4 className="text-xs font-semibold text-white truncate mb-1">{movie.tmdb_title || movie.title.replace(/\s*\(\d{4}\)$/, '')}</h4>
                         <div className="flex items-center justify-between text-[10px]">
-                          <span className="text-green-500">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
-                          <span className="text-gray-400">{movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}</span>
+                          <span className="text-green-500 font-semibold">{movie.rating > 0 ? `${movie.rating.toFixed(1)} / 10` : 'N/A'}</span>
+                          <span className="text-gray-400 font-light">{movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A'}</span>
                         </div>
                       </div>
                     </div>
@@ -888,7 +989,7 @@ function App() {
             {/* Close button */}
             <button 
               onClick={() => setSelectedMovie(null)}
-              className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition active:scale-90"
+              className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition active:scale-90 cursor-pointer"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12"></path>
@@ -976,13 +1077,13 @@ function App() {
                 <div className="flex flex-wrap items-center gap-3">
                   <button 
                     onClick={() => { alert('Starting movie playback demo...'); setSelectedMovie(null); }}
-                    className="bg-[#E50914] hover:bg-[#b80710] text-white px-5 py-2 rounded text-xs font-medium transition active:scale-95"
+                    className="bg-[#E50914] hover:bg-[#b80710] text-white px-5 py-2 rounded text-xs font-semibold transition active:scale-95 cursor-pointer shadow"
                   >
                     Play Movie
                   </button>
                   <button 
                     onClick={(e) => toggleMyList(selectedMovie, e)}
-                    className="bg-gray-800 hover:bg-gray-750 text-white px-4 py-2 rounded text-xs font-medium border border-gray-700 transition active:scale-95 flex items-center gap-1"
+                    className="bg-gray-800 hover:bg-gray-750 text-white px-4 py-2 rounded text-xs font-semibold border border-gray-700 transition active:scale-95 flex items-center gap-1 cursor-pointer"
                   >
                     {myList.some(item => item.title === selectedMovie.title) ? (
                       <>
